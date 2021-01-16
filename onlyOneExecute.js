@@ -1,7 +1,7 @@
 const exec = require("child_process").execSync;
 const fs = require("fs");
 const axios = require("axios");
-const smartReplace = require("./smartReplace");
+const smartReplace = require("./smartReplace.js");
 
 async function changeFiele() {
     let response = await axios.get(process.env.SYNCURL);
