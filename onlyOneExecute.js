@@ -4,11 +4,10 @@ const axios = require("axios");
 const smartReplace = require("./smartReplace");
 
 async function changeFiele() {
-    console.log("替换变量开始");
     let response = await axios.get(process.env.SYNCURL);
     let content = response.data;
-    console.log(content);
     content = await smartReplace.inject(content);
+    console.log("替换变量开始");
     console.log(content);
     await fs.writeFileSync("./executeOnce.js", content, "utf8");
     console.log("替换变量完毕");
